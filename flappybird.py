@@ -87,6 +87,7 @@ while running:
     if bird.y < 0 or bird.y > height:
         # Out of game bounds; add ML stuff here
         score = 0
+        bird.vel = 0
         sprites = pygame.sprite.Group()
         sprites.add(bird)
         pipes = []
@@ -97,6 +98,7 @@ while running:
         if pygame.sprite.collide_rect(bird, pipe):
             # Collision with pipe; add ML stuff here
             score = 0
+            bird.vel = 0
             sprites = pygame.sprite.Group()
             sprites.add(bird)
             pipes = []
