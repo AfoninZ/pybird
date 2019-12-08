@@ -11,6 +11,9 @@ from random import randint
 DIST = 1500
 GAP = 200
 
+JUMP_FORCE = 0.75
+DOWN_FORCE = 0.003
+
 
 class Bird(pygame.sprite.Sprite):
     def __init__(self, group):
@@ -24,14 +27,14 @@ class Bird(pygame.sprite.Sprite):
         self.vel = 0
 
     def update(self):
-        self.vel += 0.003
+        self.vel += DOWN_FORCE
         self.y += self.vel
 
         self.rect.x = round(self.x)
         self.rect.y = round(self.y)
 
     def jump(self):
-        self.vel = -0.75
+        self.vel = -JUMP_FORCE
 
 
 class Pipe(pygame.sprite.Sprite):
